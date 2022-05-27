@@ -25,7 +25,7 @@ SECRET_KEY = '16)7t#^!ebgfc9a==7+5jp=z)y!it@2ke%6@0k@77&pc8!ft@r'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['dsa-system.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['dsattendencesystem.herokuapp.com','127.0.0.1']
 
 
 # Application definition
