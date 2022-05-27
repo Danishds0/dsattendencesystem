@@ -1,0 +1,1 @@
+web: gunicorn Attendence_System.wsgi --log-file -

@@ -1,0 +1,38 @@
+
+<style>
+.container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #b4cbde;
+}
+
+
+</style>
+<div class="col-md-6" style="margin-top: 20px;">
+    <div class="card card-body">
+        <center><h3>Update Student Details</h3></center>
+        <form class="form-horizontal" action="{% url 'updateStudentRedirect' %}" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label class="control-label">Enter Student Registration ID:</label>
+                <input name="reg_id" type="text" class="form-control" placeholder="Ex: 18341A1234">
+            </div>
+            <div class="form-group">
+                <label for="sel1">Select Branch:</label>
+                <select name='branch' class="form-control" id="sel1">
+                    <option value="CSE">CSE</option>
+                    <option value="IT">IT</option>
+                    <option value="ECE">ECE</option>
+                    <option value="EEE">EEE</option>
+                    <option value="MECH">MECH</option>
+                    <option value="CHEM">CHEM</option>
+                    <option value="CIVIL">CIVIL</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-block btn-info">Submit</button>
+        </form>
+    </div>
+</div>

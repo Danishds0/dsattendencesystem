@@ -1,0 +1,789 @@
+{% extends 'attendence_sys/main.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    {% for message in messages %}
+        {% if message.tags == 'error' %}
+            <div class="alert alert-danger">
+                {{ message }}
+            </div>
+        {% else %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endif %}
+    {% endfor %}
+    <style>
+
+        body{
+            background-color: #ead7eb;
+        }
+        .cards-list {
+            z-index: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+          }
+          
+          .card {
+            margin: 30px auto;
+            width: 1050px;
+            height: 683px;
+            border-radius: 40px;
+          box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+            cursor: pointer;
+            transition: 0.4s;
+            background-color:#fe9100;
+            align-items: center;
+            padding: 45px;
+          }
+          .row{
+            margin-left: -50px;
+            lex-wrap: wrap;
+            margin-right: -72px;
+          }
+          
+         
+          .card .card_title {
+            text-align: center;
+            border-radius: 0px 0px 40px 40px;
+            font-family: sans-serif;
+            font-weight: bold;
+            font-size: 30px;
+            margin-top: 246px;
+            height: 40px;
+          }
+          
+          .card:hover {
+            transform: scale(0.9, 0.9);
+            box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+              -5px -5px 30px 15px rgba(0,0,0,0.22);
+          }
+          
+          .title-white {
+            color: white;
+          }
+          
+          .title-black {
+            color: black;
+          }
+          
+          @media all and (max-width: 500px) {
+            .card-list {
+              /* On small screens, we are no longer using row direction but column */
+              flex-direction: column;
+            }
+          }
+        .form-control{
+          width: 110%;
+    height: calc(2.5em + -0.25rem + 9px);
+        }
+    </style>
+
+    <style>
+        body, div, p {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+            font-weight: 300;
+            letter-spacing: 0.0625em;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 1980px;
+            z-index: 100;
+            margin-left: -60px;
+            height: 88px;
+        }
+        
+        nav ul {
+            list-style: none;
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        nav ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        
+        nav ul li:last-child {
+            margin-right: 0;
+        }
+        
+        #back-to-tutorial {
+            margin-left: 100px;
+        }
+        
+        nav a {
+            position: relative;
+            top: 118px;
+            padding: 10px 20px;
+            font-weight: normal;
+            font-size: 21px;
+            text-align: center;
+            border-radius: 4px;
+            background-color: #d4850a;
+            color: #ffffff;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+        }
+        
+        nav a.active {
+            top: 116px;
+            background-color: #193bd7;
+            color: #FFFFFF;
+            -webkit-box-shadow: 0 4px 0 0 #51a65f;
+            -moz-box-shadow: 0 4px 0 0 #51a65f;
+            box-shadow: 0 4px 0 0 #d4850a;
+        }
+        
+        .slides-container {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 10;
+        }
+        
+        .slide {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .slide .centered {
+            width: 60%;
+            margin: 200px auto 0;
+        }
+        
+        .slide .centered h1 {
+            text-align: center;
+        }
+        
+        .slide .centered p {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 20px;
+        }
+        
+        #slide-1 {
+            background-color: #183675;
+        }
+        
+        #slide-2 {
+            background-color: #183675;
+        }
+        
+        #slide-3 {
+            background-color: #183675;
+        }
+        
+        #slide-4 {
+            color: #FFFFFF;
+            background-color: #183675;
+        }
+        
+        .go-prev, .go-next {
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        .go-next{
+            
+            text-align: center;
+            margin-right: 40px;
+            margin-left: 298px;
+            padding: 13px;
+            background: orange;
+            color: white;
+            padding-left: 19px;
+            text-decoration: none;
+            border-radius: 20px;
+        }
+        .go-next1{
+            
+            text-align: center;
+            margin-right: 40px;
+            margin-left: 495px;
+            padding: 13px;
+            background: orange;
+            color: white;
+            padding-left: 19px;
+            text-decoration: none;
+            border-radius: 20px;
+        }
+        .go-prev{
+            text-align: center;
+            margin-right: 40px;
+            margin-left: 251px;
+            padding: 13px;
+            background: orange;
+            color: white;
+            padding-left: 19px;
+            text-decoration: none;
+            border-radius: 20px;
+        }
+        .go-prev4{
+            text-align: center;
+            margin-right: 40px;
+            margin-left: 788px;
+            padding: 13px;
+            background: orange;
+            color: white;
+            padding-left: 19px;
+            text-decoration: none;
+            border-radius: 20px;
+        }
+        .btn-info {
+            color: #000;
+            background-color: #ffffff;
+            border-color: #000000;
+            margin-top: 69px;
+            align-items: center;
+            width: 697px;
+            height: 77px;
+            font-size: 50px;
+        }
+    </style>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.11.6/TweenLite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.11.6/plugins/CSSPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.11.6/plugins/ScrollToPlugin.min.js"></script>
+  
+    
+    
+    <nav>
+    
+        <div class="coloumn">
+    <ul>
+        <li><a href="#slide-1">Add Student</a></li>
+        <li><a href="#slide-2">Take Attendence</a></li>
+        <li><a href="#slide-3">Update Student Record</a></li>
+        <li><a href="#slide-4">Search</a></li>
+    </ul>
+    </div>
+</nav>
+
+
+
+<div class="slides-container">
+    <div class="slide" id="slide-1">
+        <div class="centered">
+            <div class="column-1">
+                <div class="col-md-6" style="margin-top: 20px;">
+                    <div class="card card-body">
+                      <div class="as">  <center><h3>Add Student</h3></center></div>
+                        <form class="form-horizontal" action="" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group1">
+                                        <label class="control-label">Enter First Name:</label>
+                                        {{ studentForm.firstname }}
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group2">
+                                        <label class="control-label">Enter Last Name:</label>
+                                        {{ studentForm.lastname }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group3">
+                                        <label class="control-label">Enter Registration ID:</label>
+                                        {{ studentForm.registration_id }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group4">
+                                        <label for="sel1">Select Branch:</label>
+                                        {{ studentForm.branch }}
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group5">
+                                        <label for="sel1">Select Year:</label>
+                                        {{ studentForm.year }}
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group6">
+                                        <label for="sel1">Select Section:</label>
+                                        {{ studentForm.section }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                    <div class="form-group7" style="border: none;">
+                                        <label class="control-label">Upload Profile Picture:</label>
+                                        {{ studentForm.profile_pic }}
+                                    </div>
+                                </div>
+                                <div class="col-md-3"></div>
+                            </div>
+                            <button type="submit" class="btn btn-block btn-info">Submit</button>    
+                        </form>
+                    </div>
+                </div>
+            </div>
+        
+            <button class="go-next1 go-next">Next ⏩</button>
+        </div>
+    </div>
+    <div class="slide" id="slide-2">
+        <div class="centered">
+            <div class="column2">
+                <div class="col-md-6" style="margin-top: 20px;">
+                    
+                    <div class="card card-body">
+                        <center><h3>Take Attendence</h3></center>
+                        <form class="form-horizontal" action="{% url 'attendence' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="sel1">Select Branch:</label>
+                                <select name='branch' class="form-control" id="sel1">
+                                    <option value="CSE">CSE</option>
+                                    <option value="IT">IT</option>
+                                    <option value="ECE">ECE</option>
+                                    <option value="EEE">EEE</option>
+                                    <option value="MECH">MECH</option>
+                                    <option value="CHEM">CHEM</option>
+                                    <option value="CIVIL">CIVIL</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="sel1">Select Year:</label>
+                                <select name='year' class="form-control" id="sel1">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="sel1">Select Section:</label>
+                                <select name='section' class="form-control" id="sel1">
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="sel1">Select Period:</label>
+                                <select name='period' class="form-control" id="sel1">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-block btn-info">Take Attendence</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row-np">
+            <button class="go-prev">Previous ⏪</button>
+            <button class="go-next">Next ⏩</button>
+            </div>
+        </div>
+    </div>
+    <div class="slide" id="slide-3">
+        <div class="centered">
+            
+    <div class="column-3">
+        
+        <div class="col-md-6" style="margin-top: 20px;">
+            <div class="card card-body">
+                <center><h3>Update Student Details</h3></center>
+                <form class="form-horizontal" action="{% url 'updateStudentRedirect' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label class="control-label">Enter Student Registration ID:</label>
+                        <input name="reg_id" type="text" class="form-control" placeholder="Ex: 18341A1234">
+                    </div>
+                    <div class="form-group">
+                        <label for="sel1">Select Branch:</label>
+                        <select name='branch' class="form-control" id="sel1">
+                            <option value="CSE">CSE</option>
+                            <option value="IT">IT</option>
+                            <option value="ECE">ECE</option>
+                            <option value="EEE">EEE</option>
+                            <option value="MECH">MECH</option>
+                            <option value="CHEM">CHEM</option>
+                            <option value="CIVIL">CIVIL</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-block btn-info">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-np">
+        <button class="go-prev">Previous ⏪</button>
+        <button class="go-next">Next ⏩</button>
+        </div>
+        </div>
+    </div>
+    <div class="slide" id="slide-4">
+        <div class="centered">
+            <div class="column-4">
+                <div class="col-md-6" style="margin-top: 20px;;">
+                    <div class="card card-body">
+                        <center><h3>Search Attendence</h3></center>
+                            <a href="{% url 'searchattendence' %}" class="btn btn-block btn-info">Click Here</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row4">
+            <button class="go-prev4 go-prev">Previous ⏪</button>
+           
+            </div>
+        </div>
+    </div>
+</div>
+    
+
+    
+    
+
+<script>
+    //First the variables our app is going to use need to be declared
+
+//References to DOM elements
+var $window = $(window);
+var $document = $(document);
+//Only links that starts with #
+var $navButtons = $("nav a").filter("[href^=#]");
+var $navGoPrev = $(".go-prev");
+var $navGoNext = $(".go-next");
+var $slidesContainer = $(".slides-container");
+var $slides = $(".slide");
+
+var $currentSlide = $slides.first();
+
+//Animating flag - is our app animating
+var isAnimating = false;
+
+//The height of the window
+var pageHeight = $window.innerHeight();
+
+//Key codes for up and down arrows on keyboard. We'll be using this to navigate change slides using the keyboard
+var keyCodes = {
+    UP  : 38,
+    DOWN: 40
+}
+
+//Going to the first slide
+goToSlide($currentSlide);
+
+
+/*
+*   Adding event listeners
+* */
+
+$window.on("resize", onResize).resize();
+$window.on("mousewheel DOMMouseScroll", onMouseWheel);
+$document.on("keydown", onKeyDown);
+$navButtons.on("click", onNavButtonClick);
+$navGoPrev.on("click", goToPrevSlide);
+$navGoNext.on("click", goToNextSlide);
+
+/*
+*   Internal functions
+* */
+
+
+/*
+*   When a button is clicked - first get the button href, and then slide to the container, if there's such a container
+* */
+function onNavButtonClick(event)
+{
+    //The clicked button
+    var $button = $(this);
+
+    //The slide the button points to
+    var $slide = $($button.attr("href"));
+
+    //If the slide exists, we go to it
+    if($slide.length)
+    {
+        goToSlide($slide);
+        event.preventDefault();
+    }
+}
+
+/*
+*   Getting the pressed key. Only if it's up or down arrow, we go to prev or next slide and prevent default behaviour
+*   This way, if there's text input, the user is still able to fill it
+* */
+function onKeyDown(event)
+{
+
+    var PRESSED_KEY = event.keyCode;
+
+    if(PRESSED_KEY == keyCodes.UP)
+    {
+        goToPrevSlide();
+        event.preventDefault();
+    }
+    else if(PRESSED_KEY == keyCodes.DOWN)
+    {
+        goToNextSlide();
+        event.preventDefault();
+    }
+
+}
+
+/*
+*   When user scrolls with the mouse, we have to change slides
+* */
+function onMouseWheel(event)
+{
+    //Normalize event wheel delta
+    var delta = event.originalEvent.wheelDelta / 30 || -event.originalEvent.detail;
+
+    //If the user scrolled up, it goes to previous slide, otherwise - to next slide
+    if(delta < -1)
+    {
+        goToNextSlide();
+    }
+    else if(delta > 1)
+    {
+        goToPrevSlide();
+    }
+
+    event.preventDefault();
+}
+
+/*
+*   If there's a previous slide, slide to it
+* */
+function goToPrevSlide()
+{
+    if($currentSlide.prev().length)
+    {
+        goToSlide($currentSlide.prev());
+    }
+}
+
+/*
+*   If there's a next slide, slide to it
+* */
+function goToNextSlide()
+{
+    if($currentSlide.next().length)
+    {
+        goToSlide($currentSlide.next());
+    }
+}
+
+/*
+*   Actual transition between slides
+* */
+function goToSlide($slide)
+{
+    //If the slides are not changing and there's such a slide
+    if(!isAnimating && $slide.length)
+    {
+        //setting animating flag to true
+        isAnimating = true;
+        $currentSlide = $slide;
+
+        //Sliding to current slide
+        TweenLite.to($slidesContainer, 1, {scrollTo: {y: pageHeight * $currentSlide.index() }, onComplete: onSlideChangeEnd, onCompleteScope: this, duration:500});
+
+        //Animating menu items
+        TweenLite.to($navButtons.filter(".active"), 0.5, {className: "-=active"});
+
+        TweenLite.to($navButtons.filter("[href=#" + $currentSlide.attr("id") + "]"), 0.5, {className: "+=active"});
+
+    }
+}
+
+/*
+*   Once the sliding is finished, we need to restore "isAnimating" flag.
+*   You can also do other things in this function, such as changing page title
+* */
+function onSlideChangeEnd()
+{
+    isAnimating = false;
+}
+
+/*
+*   When user resize it's browser we need to know the new height, so we can properly align the current slide
+* */
+function onResize(event)
+{
+
+    //This will give us the new height of the window
+    var newPageHeight = $window.innerHeight();
+
+    /*
+    *   If the new height is different from the old height ( the browser is resized vertically ), the slides are resized
+    * */
+    if(pageHeight !== newPageHeight)
+    {
+        pageHeight = newPageHeight;
+
+        //This can be done via CSS only, but fails into some old browsers, so I prefer to set height via JS
+        TweenLite.set([$slidesContainer, $slides], {height: pageHeight + "px"});
+
+        //The current slide should be always on the top
+        TweenLite.set($slidesContainer, {scrollTo: {y: pageHeight * $currentSlide.index() }});
+    }
+
+}
+</script>
+{% endblock %}
+
+
+
+{% comment %} 
+{% extends 'attendence_sys/main.html' %}
+
+{% block content %}
+<div class="container">
+    {% for message in messages %}
+        {% if message.tags == 'error' %}
+            <div class="alert alert-danger">
+                {{ message }}
+            </div>
+        {% else %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endif %}
+    {% endfor %}
+    <style>
+        body{
+            background-color: #ead7eb;
+        }
+        .cards-list {
+            z-index: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+          }
+          
+          .card {
+            margin: 30px auto;
+            width: 300px;
+            height: 300px;
+            border-radius: 40px;
+          box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+            cursor: pointer;
+            transition: 0.4s;
+            background-color:#d0cfd0;
+          }
+          .row{
+            margin-left: -50px;
+            lex-wrap: wrap;
+            margin-right: -72px;
+          }
+          
+         
+          .card .card_title {
+            text-align: center;
+            border-radius: 0px 0px 40px 40px;
+            font-family: sans-serif;
+            font-weight: bold;
+            font-size: 30px;
+            margin-top: 246px;
+            height: 40px;
+          }
+          
+          .card:hover {
+            transform: scale(0.9, 0.9);
+            box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+              -5px -5px 30px 15px rgba(0,0,0,0.22);
+          }
+          
+          .title-white {
+            color: white;
+          }
+          
+          .title-black {
+            color: black;
+          }
+          
+          @media all and (max-width: 500px) {
+            .card-list {
+              /* On small screens, we are no longer using row direction but column */
+              flex-direction: column;
+            }
+          }
+
+
+    </style>
+    <div class="row">
+        <div class="card 1">
+            <div class="card_title">
+              <p>Add a Student</p>
+            </div>
+        </div>
+          <div class="card 2">
+            <div class="card_image">
+          <!--     <img src="https://media.giphy.com/media/10SvWCbt1ytWCc/giphy.gif" /> -->
+            </div>
+            <div class="card_title">
+                <p>Take Attendence</p>
+              </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            
+          <div class="card 3">
+            <div class="card_image">
+          <!--     <img src="https://media.giphy.com/media/10SvWCbt1ytWCc/giphy.gif" /> -->
+            </div>
+            <div class="card_title">
+              <p>Update Student</p>
+            </div>
+          </div>
+          <div class="card 4">
+            <div class="card_image">
+          <!--     <img src="https://media.giphy.com/media/10SvWCbt1ytWCc/giphy.gif" /> -->
+            </div>
+            <div class="card_title">
+              <p>Search a record</p>
+            </div>
+        </div>
+    
+    </div>
+</div>
+{% endblock %} {% endcomment %}

@@ -1,0 +1,42 @@
+{% extends 'attendence_sys/main.html' %}
+
+{% block content %}
+<div class="container">
+    {% for message in messages %}
+        {% if message.tags == 'error' %}
+            <div class="alert alert-danger">
+                {{ message }}
+            </div>
+        {% else %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endif %}
+    {% endfor %}
+    
+    <style>
+        .card {
+            position: relative;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #e2bff2;
+            background-clip: border-box;
+            border: 1px solid rgba(0,0,0,.125);
+            border-radius: .25rem;
+            color: #ecede9;
+        }
+
+    </style>
+    <div class="col-md-6" style="margin-top: 20px;;">
+        <div class="card card-body">
+            <center><h3>Search Attendence</h3></center>
+                <a href="{% url 'searchattendence' %}" class="btn btn-block btn-info">Click Here</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

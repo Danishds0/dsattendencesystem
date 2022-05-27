@@ -1,0 +1,95 @@
+{% extends 'attendence_sys/main.html' %}
+{% block content %}
+
+<style>
+	.profile-pic{
+		max-width: 200px;
+		max-height:200px;
+		margin: 0 auto;
+		border-radius: 50%;
+	}
+    body {
+        margin: 0;
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #fe9100;
+        text-align: left;
+        background-color: #183675;
+    }
+    .card {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fe9100;
+        background-clip: border-box;
+        border: 1px solid rgba(0,0,0,.125);
+        border-radius: .25rem;
+        color: #ecede9;
+    }
+    .btn-warning {
+        color: #fe9100;
+        background-color: #183675;
+        border-color: #ffc107;
+    }
+    img.img-responsive.profile-pic {
+        height: 196px;
+        width: 240px;
+    }
+    .btn-primary {
+        color: #fff;
+        background-color: #fe9100;
+        border-color: #007bff;
+        padding: 9px;
+    }
+ 
+    div#navbarNav {
+    margin-top: 122px;
+    }
+    .nav-link.home {
+        margin-top: -17px;
+        width: 61px;
+        padding: 5px;
+        margin-left: 80px;
+    }
+    .nav-link.account {
+        margin-top: -18px;
+        width: 79px;
+        padding: 6px;
+    }
+    .nav-link.logout {
+        margin-top: -18px;
+        width: 92px;
+        padding: 6px;
+    }
+</style>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card card-body">
+                    <a class="btn btn-warning" href="{% url 'home' %}"> &#8592; Back to Home</a>
+                    <hr>
+                    <h3 style="text-align: center; color: #183675;" >Student Profile Pic</h3>
+                    <hr>
+                    <img class="img-responsive profile-pic" src="{{ student.profile_pic.url }}" >
+                </div>
+            </div>
+            <div class="col-md-9">
+                <form action="{% url 'updateStudent' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-group" style="visibility: hidden !important;margin-top: -40px;">
+                        <input type="text" class="form-control" value="{{ prev_reg_id }}" name="prev_reg_id">
+                    </div>
+                    {{ form.as_p }}
+                    <input class="btn btn-primary" type="submit" name="Update Information">
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

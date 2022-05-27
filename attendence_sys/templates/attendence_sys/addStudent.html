@@ -1,0 +1,86 @@
+{% extends 'attendence_sys/main.html' %}
+
+{% block content %}
+<div class="container">
+    {% for message in messages %}
+        {% if message.tags == 'error' %}
+            <div class="alert alert-danger">
+                {{ message }}
+            </div>
+        {% else %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endif %}
+    {% endfor %}
+    <style>
+        .fname{
+            
+        }
+
+    </style>
+
+<div class="col-md-6" style="margin-top: 20px;">
+    <div class="card card-body">
+        <center><h3>Add Student</h3></center>
+        <form class="form-horizontal" action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group fname">
+                        <label class="control-label">Enter First Name:</label>
+                        {{ studentForm.firstname }}
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group lname">
+                        <label class="control-label">Enter Last Name:</label>
+                        {{ studentForm.lastname }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group reg">
+                        <label class="control-label">Enter Registration ID:</label>
+                        {{ studentForm.registration_id }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group bran">
+                        <label for="sel1">Select Branch:</label>
+                        {{ studentForm.branch }}
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group year">
+                        <label for="sel1">Select Year:</label>
+                        {{ studentForm.year }}
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group sec">
+                        <label for="sel1">Select Section:</label>
+                        {{ studentForm.section }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <div class="form-group" style="border: none;">
+                        <label class="control-label">Upload Profile Picture:</label>
+                        {{ studentForm.profile_pic }}
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+            <button type="submit" class="btn btn-block btn-info">Submit</button>    
+        </form>
+    </div>
+</div>
+</div>
+
+{% endblock %}

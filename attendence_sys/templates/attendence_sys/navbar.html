@@ -1,0 +1,484 @@
+{% load static %}
+
+
+<style>
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    height: 147px;
+}
+  img {
+  vertical-align: middle;
+  border-style: outset;
+  width: 85px;
+  height: 87px;
+  margin-left: 47px;
+}
+  .hello-msg{
+    font-size: 18px;
+    color: #fff;
+    margin-right: 20px;
+  }
+  body{
+    background-color:#ecede9;
+  }
+
+    .as{
+      color:black;
+    }
+    label.control-label {
+      margin-top: 10px;
+  }
+      input#id_firstname {
+        height: 44px;
+        width: 306px;
+        margin-right: 282px;
+        margin-top: 17px;
+        padding: 13px;
+    }
+    input#id_lastname {
+      height: 44px;
+      width: 306px;
+      margin-right: -137px;
+      margin-top: 17px;
+      padding: 13px;
+  }
+
+    .card {
+      position: relative;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      min-width: 0;
+      word-wrap: break-word;
+      background-color: #570a7b;
+      background-clip: border-box;
+      border: 1px solid rgba(0,0,0,.125);
+      border-radius: .25rem;
+      color: #ecede9;
+    }
+  
+    .btn-info {
+      color: #000;
+      background-color: #ecede9;
+      border-color:#ecede9;
+      margin-top: 69px;
+        align-items: center;
+        width: 589px;
+    height: 77px;
+    }
+    .nav-link{
+      color: black;
+      background-color:#ff9400;
+      margin: 6px;
+    }
+    .name{
+      color: white;
+
+    }
+    .form-group {
+      margin-bottom: 1rem;
+      width: 533px;
+  }
+  .nav-link.home {
+    margin-top: -70px;
+    width: 101px;
+    padding: 0px;
+    color:white;
+}
+.nav-link.hello {
+  margin-top: -16px;
+    width: 216px;
+    padding: 5px;
+    color:white;
+}
+.nav-link.account {
+  margin-top: -70px;
+  width: 101px;
+  padding: 0px;
+  color:white;
+}
+.nav-link.logout {
+  margin-top: -70px;
+  width: 101px;
+  padding: 0px;
+  color:white;
+}
+
+ 
+
+</style>
+<style>
+  $main-green: #53f765;
+$main-yellow: #fffd35;
+$main-orange: #ff9c00;
+$main-red: #ff3368;
+$main-blue: #32f8ff;
+$main-darkblue: #324fff;
+$margin: 1.375rem;
+
+
+// Glitch
+.glitch {
+  color: white;
+  line-height: 1;
+}
+span.glitch.character {
+  color: white;
+}
+.characters-container {
+  position: relative;
+  margin: $margin/2 0;
+}
+
+.character {
+  display: inline-block;
+  position: relative;
+  letter-spacing: -$margin/1.5;
+}
+
+.character:nth-child(even) {
+  bottom: $margin/3;
+}
+
+@-webkit-keyframes glitch-animation-after {
+  0% {
+    clip: rect(15px, 600px, 100px, 0)
+  }
+  6.66667% {
+    clip: rect(6px, 600px, 94px, 0)
+  }
+  13.33333% {
+    clip: rect(28px, 600px, 58px, 0)
+  }
+  20% {
+    clip: rect(32px, 600px, 37px, 0)
+  }
+  26.66667% {
+    clip: rect(76px, 600px, 39px, 0)
+  }
+  33.33333% {
+    clip: rect(74px, 600px, 36px, 0)
+  }
+  40% {
+    clip: rect(81px, 600px, 34px, 0)
+  }
+  46.66667% {
+    clip: rect(54px, 600px, 14px, 0)
+  }
+  53.33333% {
+    clip: rect(65px, 600px, 50px, 0)
+  }
+  60% {
+    clip: rect(85px, 600px, 100px, 0)
+  }
+  66.66667% {
+    clip: rect(61px, 600px, 72px, 0)
+  }
+  73.33333% {
+    clip: rect(23px, 600px, 65px, 0)
+  }
+  80% {
+    clip: rect(0, 0, 0, 0)
+  }
+  100% {
+    clip: rect(0, 0, 0, 0)
+  }
+}
+
+@keyframes glitch-animation-after {
+  0% {
+    clip: rect(65px, 600px, 39px, 0)
+  }
+  6.66667% {
+    clip: rect(19px, 600px, 21px, 0)
+  }
+  13.33333% {
+    clip: rect(80px, 600px, 51px, 0)
+  }
+  20% {
+    clip: rect(6px, 600px, 16px, 0)
+  }
+  26.66667% {
+    clip: rect(31px, 600px, 95px, 0)
+  }
+  33.33333% {
+    clip: rect(94px, 600px, 84px, 0)
+  }
+  40% {
+    clip: rect(84px, 600px, 74px, 0)
+  }
+  46.66667% {
+    clip: rect(97px, 600px, 55px, 0)
+  }
+  53.33333% {
+    clip: rect(7px, 600px, 18px, 0)
+  }
+  60% {
+    clip: rect(24px, 600px, 17px, 0)
+  }
+  66.66667% {
+    clip: rect(28px, 600px, 97px, 0)
+  }
+  73.33333% {
+    clip: rect(61px, 600px, 2px, 0)
+  }
+  80% {
+    clip: rect(0, 0, 0, 0)
+  }
+  100% {
+    clip: rect(0, 0, 0, 0)
+  }
+}
+
+@-webkit-keyframes glitch-animation-before {
+  0% {
+    clip: rect(62px, 600px, 45px, 0)
+  }
+  6.66667% {
+    clip: rect(46px, 600px, 67px, 0)
+  }
+  13.33333% {
+    clip: rect(68px, 600px, 49px, 0)
+  }
+  20% {
+    clip: rect(82px, 600px, 56px, 0)
+  }
+  26.66667% {
+    clip: rect(53px, 600px, 6px, 0)
+  }
+  33.33333% {
+    clip: rect(9px, 600px, 90px, 0)
+  }
+  40% {
+    clip: rect(95px, 600px, 69px, 0)
+  }
+  46.66667% {
+    clip: rect(50px, 600px, 99px, 0)
+  }
+  53.33333% {
+    clip: rect(4px, 600px, 60px, 0)
+  }
+  60% {
+    clip: rect(78px, 600px, 97px, 0)
+  }
+  66.66667% {
+    clip: rect(30px, 600px, 69px, 0)
+  }
+  73.33333% {
+    clip: rect(68px, 600px, 49px, 0)
+  }
+  80% {
+    clip: rect(0, 0, 0, 0)
+  }
+  100% {
+    clip: rect(0, 0, 0, 0)
+  }
+}
+
+@keyframes glitch-animation-before {
+  0% {
+    clip: rect(86px, 600px, 98px, 0)
+  }
+  6.66667% {
+    clip: rect(62px, 600px, 92px, 0)
+  }
+  13.33333% {
+    clip: rect(91px, 600px, 20px, 0)
+  }
+  20% {
+    clip: rect(47px, 600px, 44px, 0)
+  }
+  26.66667% {
+    clip: rect(1px, 600px, 77px, 0)
+  }
+  33.33333% {
+    clip: rect(99px, 600px, 22px, 0)
+  }
+  40% {
+    clip: rect(44px, 600px, 12px, 0)
+  }
+  46.66667% {
+    clip: rect(71px, 600px, 65px, 0)
+  }
+  53.33333% {
+    clip: rect(52px, 600px, 28px, 0)
+  }
+  60% {
+    clip: rect(10px, 600px, 15px, 0)
+  }
+  66.66667% {
+    clip: rect(75px, 600px, 69px, 0)
+  }
+  73.33333% {
+    clip: rect(57px, 600px, 62px, 0)
+  }
+  80% {
+    clip: rect(0, 0, 0, 0)
+  }
+  100% {
+    clip: rect(0, 0, 0, 0)
+  }
+}
+
+.glitch:before,
+.glitch:after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(204, 57, 107, 0);
+  clip: rect(0, 0, 0, 0);
+}
+
+.glitch:after {
+  left: 2px;
+  text-shadow: -5px 0 rgba(255, 51, 104, 0.5);
+  animation: glitch-animation-after 2s infinite linear alternate-reverse;
+}
+
+.glitch:before {
+  left: -2px;
+  text-shadow: 5px 0 rgba(94, 38, 255, 0.5);
+  animation: glitch-animation-before 3s infinite linear alternate-reverse;
+}
+
+// Styling
+body {
+  background: black;
+}
+
+.page-title {
+  font-family: 'Verdana';
+  font-weight: bold;
+  font-size: 3em;
+}
+
+</style>
+
+
+
+<nav class="navbar navbar-expand-lg" style= "background:transparent">
+  
+   <img src="{% static 'images/logo.jpg' %}" height="50px" width="250px">
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    
+  <h1 class="page-title">
+    <div class="title-glitch-top">
+      <span class="glitch character" data-text="B">D</span>
+      <span class="glitch character" data-text="A">S</span>
+      <span class="glitch character" data-text=""></span>
+      <span class="glitch character" data-text="A">A</span>
+      <span class="glitch character" data-text="T">T</span>
+      <span class="glitch character" data-text="T">T</span>
+      <span class="glitch character" data-text="E">E</span>
+      <span class="glitch character" data-text="N">N</span>
+      <span class="glitch character" data-text="D">D</span>
+      <span class="glitch character" data-text="E">E</span>
+      <span class="glitch character" data-text="N">N</span>
+      <span class="glitch character" data-text="C">C</span>
+      <span class="glitch character" data-text="E">E</span>
+      <span class="glitch character" data-text=""></span>
+      <span class="glitch character" data-text="S">S</span>
+      <span class="glitch character" data-text="Y">Y</span>
+      <span class="glitch character" data-text="S">S</span>
+      <span class="glitch character" data-text="T">T</span>
+      <span class="glitch character" data-text="E">E</span>
+      <span class="glitch character" data-text="M">M</span>
+    </div>
+  </h1>
+    {% comment %} title><h1 class="heading" align="center">DS ATTENDENCE SYSTEM</h1></title> {% endcomment %}
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <span class="nav-link hello">Hello, {{ request.user.faculty }}</span>
+      </li>
+      <li class="nav-item active">
+        <a href="{% url 'home' %}" class="nav-link home">Home</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link account" href="{% url 'account' %}">Account</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link logout" href="{% url 'logout' %}">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+{% comment %} {% load static %}
+
+
+<style>
+  .hello-msg{
+    font-size: 18px;
+    color: #fff;
+    margin-right: 20px;
+  }
+  body{
+    background-color:#ecede9;
+  }
+
+    .card {
+      position: relative;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      min-width: 0;
+      word-wrap: break-word;
+      background-color: #570a7b;
+      background-clip: border-box;
+      border: 1px solid rgba(0,0,0,.125);
+      border-radius: .25rem;
+      color: #ecede9;
+    }
+  
+    .btn-info {
+      color: #000;
+      background-color: #ecede9;
+      border-color:#ecede9;
+      margin-top: 139px;
+        align-items: center;
+    }
+    .nav-link{
+      color: black;
+      background-color: yellow;
+      margin: -6px;
+    }
+    .name{
+      color: white;
+
+    }
+</style>
+
+<nav class="navbar navbar-expand-lg" style= "background-color:black">
+ <img src="{% static 'images/logo.jpg' %}" height="50px" width="250px">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <span class="nav-link name">Hello, {{ request.user.faculty }}</span>
+      </li>
+      <li class="nav-item active">
+        <a href="{% url 'home' %}" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'account' %}">Account</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>  {% endcomment %}
