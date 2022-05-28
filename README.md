@@ -19,7 +19,7 @@ We can add mutiple faculty in user through superuser.
 **Django** web framework is used for the development of the whole web app.
 **OpenCv and face_recognition API's** were used for the development of Face Recognizzer. The Face Recognizer can detect multiple face at a time and mark their attendance into Database.
 
-**Note: When we start taking attendance through the portal, sometime it might be taking time due to Opencv and Face recognition.
+**Note: When we start taking attendance through the portal, sometime it might be taking time due to Opencv and Face recognition.**
 
 **Note: Python version 3.9.13 is use for this project. And dlib package required for installation of face_recognition api is also uploaded.**
 ## Installation proccess for localhost
