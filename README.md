@@ -48,7 +48,12 @@ python manage.py createsuperuser
 
 After running the above command and creating the credentials, you can use the same credentials for logging in.
 
+**Note: Use Chrome, Mozilla Firefox for best view use 80% screen resolution.**
 
 ## 🛠 Tech-Stack
 PYTHON, DJANGO, Javascript, HTML, CSS...
 
+
+## Live Video of Attendance System
+
+![alt text](https://github.com/Danishds0/dsattendencesystem/blob/master/ds-attendance-system.gif)
