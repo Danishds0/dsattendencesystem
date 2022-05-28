@@ -38,7 +38,7 @@ class Student(models.Model):
         ('CHEM','CHEM'),
         ('MECH','MECH'),
         ('EEE','EEE'),
-        ('MCA','MCA')
+        
     )
     YEAR = (
         ('1','1'),
