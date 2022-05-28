@@ -21,7 +21,7 @@
 		flex-direction: column;
 		min-width: 0;
 		word-wrap: break-word;
-		background-color: #cccbcc;
+		background-color: #bababa;
 		background-clip: border-box;
 		border: 1px solid rgba(0,0,0,.125);
 		border-radius: 0.25rem;
@@ -63,6 +63,8 @@
 					<th>Section</th>
 					<th>Period</th>
 					<th>Status</th>
+					<th>Date</th>
+					<th>Time</th>
 				</tr>
 
 				{% for attendence in attendences %}
@@ -74,6 +76,8 @@
 					<td>{{ attendence.section }}</td>
 					<td>{{ attendence.period }}</td>
 					<td>{{ attendence.status }}</td>
+					<td>{{ attendence.date }}</td>
+					<td>{{ attendence.time }}</td>
 				</tr>
 				{% endfor %}
 
