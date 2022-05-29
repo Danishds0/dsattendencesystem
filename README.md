@@ -4,8 +4,8 @@
 
 In this Attendance System the Attendance for students is marked using Face verification.
 Create account by registering as a user faculty and Login to account.
-Aftter Login the faculty has the access to add a students, take Attendance, modify Student details.
-The faculty can search Attendance of a student using Multiparamater Search, by specifying the student ID, date of attendance, period of Attendance.
+After Login the faculty has the access to add a students, take Attendance, modify Student details.
+The faculty can search Attendance of a student using Multiparameter Search, by specifying the student ID, date of attendance, period of Attendance.
 
 The credentials for the Faculty are provided by superuser who has access to the whole database. Alse we can create faculty as a user through register signup and then login to the main account.
 
