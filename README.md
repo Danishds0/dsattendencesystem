@@ -50,6 +50,16 @@ After running the above command and creating the credentials, you can use the sa
 
 **Note: Use Chrome, Mozilla Firefox for best view use 80% screen resolution.**
 
+##Functionalities
+* Login/ Register for Faculty using General or social account.
+* Forget Password 
+* Add a Student
+* Take an Attendance
+* Update a Student Record
+* Search Attendance
+* Faculty Profile Form
+
+
 ## 🛠 Tech-Stack
 PYTHON, DJANGO, Javascript, HTML, CSS...
 
