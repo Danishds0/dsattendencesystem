@@ -14,7 +14,7 @@ Through google and facebook social account, this web app only creates user, The 
 .
 
 
-We can add mutiple faculty in user through superuser.
+We can add multiple faculty in user through superuser.
 
 **Django** web framework is used for the development of the whole web app.
 **OpenCv and face_recognition API's** were used for the development of Face Recognizzer. The Face Recognizer can detect multiple face at a time and mark their attendance into Database.
