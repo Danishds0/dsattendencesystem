@@ -50,7 +50,7 @@ After running the above command and creating the credentials, you can use the sa
 
 **Note: Use Chrome, Mozilla Firefox for best view use 80% screen resolution.**
 
-##Functionalities
+## Functionalities
 * Login/ Register for Faculty using General or social account.
 * Forget Password 
 * Add a Student
